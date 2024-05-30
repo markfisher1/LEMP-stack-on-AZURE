@@ -1,10 +1,12 @@
-Setting Up LEMP Stack on AZURE:
+# Setting Up LEMP Stack on AZURE:
 
-LEMP stands for: Linux, Nginx (engine x) web server, MySQL Database, and PHP
+# LEMP stands for: Linux, Nginx (engine x) web server, MySQL Database, and PHP
 
-1.Connect to a Virtual Machine:
 
-Step 1: Create a Virtual Machine
+# 1.Connect to a Virtual Machine:
+
+
+# Step 1: Create a Virtual Machine
 
 The first thing we are going to do is to log into in the AZURE Console and create a VM
 Choose a name you like and select the Ubuntu image for the VM.
@@ -15,9 +17,10 @@ Select the default EBS volume(8 gbs)
 Under the “Network settings” we will create a new security group and select “allow SSH 80 traffic from” and “Allow HTTP 443 from the internet”.
 This will allow our instance to be able to send and receive traffic, thus be able to connect to the internet.
 
-Step 2: via CLI
 
-i. ON YOUR COMMAND PROMPT Connect to Instance:
+# Step 2: via CLI
+
+# i. ON YOUR COMMAND PROMPT Connect to Instance:
 Establish SSH connection to the VM --
 
 cd "path to your key file" for eg- cd C:\Users\NAME\linux key  (remember to put the cd command before the path)
@@ -27,7 +30,7 @@ looks like this az ssh vm --resource-group krystal_group --vm-name krystal --sub
                    
                                 OR
 
-ii. TO CONNECT to your VM VIA YOUR AZURE CLI [BASH OR POWERSHELL (UBUNTU)]-  
+# ii. TO CONNECT to your VM VIA YOUR AZURE CLI [BASH OR POWERSHELL (UBUNTU)]-  
 ON YOUR AZURE CONSOLE click on your VM name and cick on 'connect',
 It will validate, configure and then click on connect.
 
@@ -39,11 +42,13 @@ if there is anything to ugrade -
 
 sudo apt upgrade
 
-2.Install Components:
+
+# 2.Install Components:
 
 Install Nginx, MySQL, and PHP packages using package manager commands--
  
-a. Installing Nginx --
+
+# a. Installing Nginx --
 
 sudo apt install nginx
 
@@ -66,7 +71,9 @@ http://<Public-IP-Address>:80
 
  voila 
 
-b. Installing MySQL
+
+# b. Installing MySQL
+
 Our web server is up and running so now it is time to focus on the “M” part of the LEMP stack. The “M” stands for MySQL.
 MySQL is a popular relational database management system used for PHP environments,
 and we will deploying that as part of this project!
@@ -105,7 +112,8 @@ You will be met with a few confirmation prompts, enter “Y” for all.
 Now that our root user password has been SET. We will reconnect to MySQL to save the changes and exit.
 MySQL is now officially installed and secured.
 
-c. Installing PHP
+
+# c. Installing PHP
 
 So far our we have successfully deployed a linux VM, NGINX web server, and MySQL relational database. 
 It is time to deploy the last part of the LEMP stack, and that is PHP.
@@ -122,7 +130,7 @@ Enter “Y” when prompted and hit the ENTER/RETURN key on your keyboard.--
 sudo apt install php-fpm php-mysql
 
 
-3. Configuring NGINX to work with PHP
+# 3. Configuring NGINX to work with PHP
 
 By default NGINX is setup to only run one server block.
 Next, you'll need to configure Nginx to process PHP files.
@@ -200,7 +208,7 @@ sudo systemctl reload nginx
 ( reloads nginx )
 
 
-4.Test LEMP stack - Create and access a PHP info file to confirm successful stack setup.
+# 4.Test LEMP stack - Create and access a PHP info file to confirm successful stack setup.
 
 Our custom website is now up and running, but we have to create an index.html 
 so that we can test out the server block and make sure things are working properly.--
@@ -213,7 +221,7 @@ sudo sh -c "echo 'Hello LEMP from hostname $(curl -s http://20.190.196.102/lates
 The last leg of the LEMP stack is now complete! In next step we will create a PHP script to test with NGINX!
 
 
-Testing PHP with NGINX
+# Testing PHP with NGINX
 
 We are going to test and validate that NGINX can handle PHP files and serve them on our website.
 
@@ -251,7 +259,7 @@ sudo rm /var/www/your_domain/index.php
 
 
 
-NOTES
+# NOTES
 
 sudo apt install nginx 
 
