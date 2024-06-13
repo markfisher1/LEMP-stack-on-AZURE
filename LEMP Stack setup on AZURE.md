@@ -199,7 +199,7 @@ If there are any syntax errors make sure to go back and check the configuration.
 We must disable the default NGINX host that is listening on port 80.
 Afterwards, we will reload NGINX to save the changes.
 
-Run the following command to disable it.--
+Run the following command to disable it:
 
 sudo unlink /etc/nginx/sites-enabled/default
 ( removes nginx as the default host )
