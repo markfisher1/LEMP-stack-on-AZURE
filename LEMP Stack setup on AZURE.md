@@ -92,7 +92,7 @@ sudo mysql
 We will run a security script directly from the MySQL console, and this script will give us the permission 
 to set a password for our example root user to be able to have access to the database.
 
-Run the following script from the MySQL console: “mysql>” --
+Run the following script from the MySQL console: “mysql>” --:
 
 ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY 'PassWord.1';
 
@@ -260,6 +260,12 @@ sudo rm /var/www/your_domain/index.php
 
 
 # NOTES
+
+sudo apt install -y software-properties-common
+
+sudo add-apt-repository ppa:ondrej/php
+
+sudo apt update
 
 sudo apt install nginx 
 
